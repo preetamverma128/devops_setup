@@ -1,0 +1,37 @@
+[200~ rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+   16  dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+   17  dnf install binutils kernel-devel kernel-headers libgomp make patch gcc glibc-headers glibc-devel dkms -y
+   18  dnf search virtualbox
+   19   dnf install VirtualBox-6.1 -y
+   20  usermod -aG vboxusers root
+   21  usermod -aG vboxusers preetam
+   22  virtualbox
+   23  sudo /sbin/vboxconfig
+   24  virtualbox
+   25  vagrant plugin install libvirt
+   26  yum -y install gcc dkms make qt libgomp patch
+   27  yum -y install kernel-headers kernel-devel binutils glibc-headers glibc-devel font-forge
+   28  yum repolist
+   29  cd /etc/yum.repo.d/
+   30  cd /etc/
+   31  ls
+   32  cd yum.repos.d/
+   33  cd /etc/yum.repo.d/
+   34  pwd
+   35  cd /etc/yum.repo.d
+   36  ls
+   37  ls -1
+   38  wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+   39  ls -1
+   40  yum install -y VirtualBox-5.1
+   41  ls
+   42  cd
+   43  ls
+   44  cd Documents/
+   45  ls
+   46  sudo dnf -y install https://releases.hashicorp.com/vagrant/${VERSION}/vagrant_${VERSION}_x86_64.rpm
+   47  VERSION="2.2.7"
+   48  sudo dnf -y install https://releases.hashicorp.com/vagrant/${VERSION}/vagrant_${VERSION}_x86_64.rpm
+   49  vagrant box add centos/8 --provider=libvirt
+   50  vagrant box add centos/8 --provider=virtualbox
+
