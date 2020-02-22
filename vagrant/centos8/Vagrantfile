@@ -1,0 +1,38 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+
+
+Vagrant.configure(2) do |config|
+  config.vm.provision "shell", path: "bootstrap.sh"
+
+  config.vm.define "server" do |server|
+    server.vm.box = "centos/8"
+    server.vm.box_check_update = false
+    server.vm.hostname = "server.preetam.com"
+    server.vm.network "private_network", ip: "192.168.0.50"
+    server.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+       vb.gui = false
+       vb.name = "server"
+       vb.memory = "6144"
+       vb.cpus = 4
+    end
+  end
+
+  config.vm.define "client" do |client|
+    client.vm.box = "centos/8"
+    client.vm.box_check_update = false
+    client.vm.hostname = "client.preetam.com"
+    client.vm.network "private_network", ip: "192.168.0.51"
+    client.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+       vb.gui = false
+       vb.name = "client"
+       vb.memory = "1024"
+       vb.cpus = 1
+    end
+  end
+end
+
